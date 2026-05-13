@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="pt-BR">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<title>Valentina — Links</title>
+		<link rel="stylesheet" href="styles.css" />
+	</head>
+	<body>
+		<main class="container">
+			<div class="hero" role="img" aria-label="Imagem de fundo">
+				<div class="hero-content">
+					<h1 class="name">Valentina</h1>
+					<p class="handle">@ivalentinaferrari</p>
+				</div>
+			</div>
+
+			<nav class="links">
+				<div class="cta">
+					<a class="btn-telegram" href="https://t.me/valentinaferrari_bot" target="_blank" rel="noopener noreferrer">
+						<span class="btn-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+								<path d="M22 3L2 10.5l5.5 2.1L9.9 20 13 15.2 22 3z" fill="#fff" opacity="0.95"/>
+							</svg>
+						</span>
+						<span class="btn-text">TELEGRAM 👈🏼🔥😈</span>
+					</a>
+				</div>
+
+				<div class="tabs" role="tablist" aria-label="Seções">
+					<button class="tab active" role="tab" aria-selected="true" data-target="shouts">Shouts</button>
+					<button class="tab" role="tab" aria-selected="false" data-target="media">Media</button>
+				</div>
+
+				<div class="content-slider">
+					<div class="content-track" aria-live="polite">
+
+						<section class="content-section shouts-empty" aria-hidden="false">
+							<div class="media-icon" aria-hidden="true">
+                <img src="images/icon.png" alt="" />
+							</div>
+							<h2>No Shouts yet!</h2>
+							<p class="media-sub">Shouts posted by Valentina will appear here</p>
+							<div class="profile-cta">
+								<p class="create">Visit my channel</p>
+							</div>
+						</section>
+
+						<section class="content-section media-empty" aria-hidden="true">
+							<div class="media-icon" aria-hidden="true">
+                <img src="images/icon.png" alt="" />
+							</div>
+							<h2>No Media yet!</h2>
+							<p class="media-sub">Shouts with media posted by Valentina will appear here</p>
+							<div class="profile-cta">
+								<p class="create">Visit my channel</p>
+							</div>
+						</section>
+
+					</div>
+				</div>
+			</nav>
+
+			<footer class="footer">
+				<div class="footer-inner">
+          <div class="mini-row">
+            <img src="images/logo2.webp" alt="" class="mini-avatar-img">
+            <div class="me-badge">me</div>
+          </div>
+					<p class="create">Visit my channel</p>
+					<div class="meta-links">
+						<a href="#">Privacy Policy</a> | <a href="#">Terms</a> | <a href="#">Report</a>
+					</div>
+				</div>
+			</footer>
+		</main>
+
+		<script>
+		(function(){
+		  const tabs = document.querySelectorAll('.tabs .tab');
+		  const shouts = document.querySelector('.shouts-empty');
+		  const media  = document.querySelector('.media-empty');
+		  const track  = document.querySelector('.content-track');
+
+		  function show(target) {
+		    if (target === 'shouts') {
+		      track.style.transform = 'translateX(0%)';
+		      shouts.setAttribute('aria-hidden', 'false');
+		      media.setAttribute('aria-hidden', 'true');
+		    } else {
+		      track.style.transform = 'translateX(-50%)';
+		      shouts.setAttribute('aria-hidden', 'true');
+		      media.setAttribute('aria-hidden', 'false');
+		    }
+		  }
+
+		  tabs.forEach(tab => {
+		    tab.addEventListener('click', () => {
+		      tabs.forEach(t => {
+		        t.classList.remove('active');
+		        t.setAttribute('aria-selected', 'false');
+		      });
+		      tab.classList.add('active');
+		      tab.setAttribute('aria-selected', 'true');
+		      show(tab.dataset.target || 'shouts');
+		    });
+		  });
+
+		  show('shouts');
+		})();
+		</script>
+	</body>
+</html>
